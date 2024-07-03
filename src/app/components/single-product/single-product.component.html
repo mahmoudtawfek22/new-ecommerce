@@ -1,0 +1,59 @@
+@if (load) {
+<div class="load">
+  <div class="loader"></div>
+</div>
+}@else {
+<div class="container d-flex flex-md-row flex-sm-column flex-column gap-5 pb-3">
+  <div class="image text-center mx-auto">
+    <img [src]="productImage" alt="" style="height: 400px; width: 350px" />
+    <div class="images d-flex justify-content-center">
+      @for (item of product?.images; track $index) {
+      <div>
+        <img
+          [src]="item"
+          class="d-block"
+          style="height: 150px; width: 110px"
+          alt=""
+          (click)="change($index)"
+        />
+      </div>
+
+      }
+    </div>
+  </div>
+  <div class="text align-content-center align-content-center mx-auto">
+    <h2 class="text-sm-center text-center text-md-start fw-bold">
+      {{ product?.title }}
+    </h2>
+    <p class="text-center text-md-start fw-medium">{{ product?.brand }}</p>
+    <p class="text-center text-md-start">{{ product?.description }}</p>
+    <p class="text-center text-md-start">
+      <i class="fas fa-star gold-star"></i> {{ product?.rating }}
+    </p>
+
+    <p class="text-center text-md-start fs-4 fw-bold">
+      <span class="price fs-5 fw-normal">{{ product?.price }}</span>
+      {{ product?.price | discount : product?.discountPercentage }}$
+    </p>
+
+    @if (product?.added==true) {
+    <a
+      name=""
+      id=""
+      class="btn btn-primary d-block"
+      (click)="addToCart()"
+      role="button"
+      >Remove From Cart</a
+    >}@else {
+    <a
+      name=""
+      id=""
+      class="btn btn-primary d-block"
+      (click)="addToCart()"
+      role="button"
+      >Add To Cart</a
+    >
+    }
+  </div>
+</div>
+}

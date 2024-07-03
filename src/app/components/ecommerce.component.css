@@ -1,0 +1,19 @@
+.up {
+  display: none;
+}
+
+.visible {
+  width: 45px;
+  height: 45px;
+  border-radius: 15px;
+  border: none;
+  display: block;
+  position: fixed;
+  background-color: var(--maincolor);
+  text-align: center;
+  bottom: 120px;
+  right: 25px;
+  font-size: larger;
+  color: white;
+  font-weight: 900;
+}

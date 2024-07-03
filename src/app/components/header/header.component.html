@@ -1,0 +1,95 @@
+<div class="row header-container g-0 align-items-sm-center">
+  <div class="col-4 text-center">
+    <nav class="navbar navbar-expand-sm text-center">
+      <button
+        class="navbar-toggler d-lg-none scale-up-center text-dark bg-white border-primary"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapsibleNavId"
+        aria-controls="collapsibleNavId"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="collapse navbar-collapse w-100 text-center mx-auto"
+        id="collapsibleNavId"
+      >
+        <ul
+          class="navbar-nav d-flex justify-content-around mx-auto mt-2 mt-lg-0"
+        >
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              [routerLink]="['/home']"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >Home</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              [routerLink]="['/shop', 'all']"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: false }"
+              [ngClass]="{ active: isShopActive }"
+              >Shop</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="/profile"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >Profile</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <div class="brand navbar-brand text-primary text-center my-2 my-sm-0 col-4">
+    <h2 class="rotate-center">Shop</h2>
+  </div>
+  <div class="inputs col-4 my-2 my-sm-0">
+    <div class="d-flex align-items-center">
+      <div
+        class="icon d-flex flex-column mx-auto text-center align-items-center justify-content-center flip-vertical-right"
+        routerLink="/cart"
+        style="cursor: pointer"
+      >
+        <div class="order-number">{{ orderedProducstNum }}</div>
+        <div>
+          <i class="fa fa-cart-plus"></i>
+        </div>
+      </div>
+      @if (token) {
+      <div
+        class="icon d-flex flex-column mx-auto text-center align-items-center justify-content-center"
+      >
+        <a
+          name=""
+          id=""
+          class="btn btn-danger"
+          (click)="logout()"
+          href="#"
+          role="button"
+          >logout</a
+        >
+      </div>
+      }@else {
+      <div
+        class="icon d-flex flex-column mx-auto text-center align-items-center justify-content-center flip-vertical-right"
+      >
+        <button routerLink="/login" class="btn btn-light">Join</button>
+      </div>
+      }
+    </div>
+  </div>
+</div>

@@ -1,0 +1,98 @@
+@if (load) {
+<div class="load">
+  <div class="loader"></div>
+</div>
+}@else {
+<div class="shop-container">
+  <div class="search-catagory d-flex px-3 gap-4 justify-content-around">
+    <div class="w-50">
+      <select
+        class="form-select"
+        name="catagory"
+        id=""
+        [(ngModel)]="selectedCatagory"
+        (change)="filterByCatagory(selectedCatagory)"
+      >
+        @for (catagory of catagoriesList; track $index) {
+        <option name="catagory" class="form-select" [value]="catagory">
+          {{ catagory }}
+        </option>
+        }
+      </select>
+    </div>
+    <div class="search w-50 d-flex">
+      <div class="p-2">
+        <i class="fa-solid fa-magnifying-glass text-light"></i>
+      </div>
+      <div class="w-100 flex-grow-1">
+        <input
+          type="search"
+          class="form-control text-primary"
+          [(ngModel)]="searchValue"
+          (input)="search()"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 m-auto mx-4"
+  >
+    @for (item of selectedProducts ; track $index) {
+    <div class="col">
+      <div class="card product">
+        @if (item.discountPercentage) {
+        <p class="sale">Sale</p>
+        }
+        <div class="prd-image">
+          <img [src]="item?.thumbnail" class="card-img-top" alt="..." />
+        </div>
+
+        <div class="cardbody text-center mx-3">
+          <h5 class="card-title">{{ item?.title }}</h5>
+          <p class="card-text">
+            {{ item?.description }}
+          </p>
+        </div>
+        <div class="text-center mb-2 price">
+          <span class="discount fw-normal">{{ item?.price }}</span>
+
+          {{ item?.priceAfterDiscount }}$
+        </div>
+        <div
+          class="d-flex justify-content-around align-content-center mt-1 mb-5 mb-md-3"
+        >
+          <a
+            name=""
+            id=""
+            class="btn btn-primary d-block"
+            [routerLink]="['/product', item?.id]"
+            role="button"
+            >View</a
+          >
+          @if (item.added==true) {
+          <a
+            name=""
+            id=""
+            class="btn btn-primary d-block"
+            (click)="addToCart(item, $event, $index)"
+            role="button"
+            >Remove From Cart</a
+          >}@else {
+          <a
+            name=""
+            id=""
+            class="btn btn-primary d-block"
+            (click)="addToCart(item, $event, $index)"
+            role="button"
+            >Add To Cart</a
+          >
+          }
+        </div>
+      </div>
+    </div>
+
+    }
+  </div>
+</div>
+}

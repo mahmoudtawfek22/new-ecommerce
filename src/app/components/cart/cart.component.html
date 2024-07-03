@@ -1,0 +1,78 @@
+@if (cartProducts.length>=1) {
+
+<div class="cart-container">
+  <!-- @for (quantity of quantities; track $index) { -->
+  <!-- <ng-container> -->
+  <ng-container>
+    @for (item of cartProducts; track $index) {
+
+    <div class="box">
+      <div class="image">
+        <img [src]="item.thumbnail" alt="" />
+      </div>
+      <div class="text">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+        <p><i class="fas fa-star gold-star"></i>{{ item.rating }}</p>
+      </div>
+      <div class="price">
+        <p>{{ item.priceAfterDiscount }}</p>
+      </div>
+      <div class="counter">
+        <p>
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="decrease($index)"
+          >
+            -
+          </button>
+        </p>
+        <p>{{ quantities[$index] }}</p>
+        <p>
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="increase($index)"
+          >
+            +
+          </button>
+        </p>
+      </div>
+
+      <div class="cart-button">
+        <button
+          type="button"
+          class="btn btn-close bg-danger"
+          (click)="delete($index)"
+        ></button>
+      </div>
+    </div>
+
+    }
+    <!-- </ng-container> -->
+    <!-- } -->
+    <p class="total text-center fs-1">total price: {{ totalPrice }}</p>
+
+    <div class="d-flex justify-content-center mb-3">
+      <button type="button" class="btn btn-primary" (click)="placeOrder()">
+        Place Order
+      </button>
+    </div>
+  </ng-container>
+</div>
+}@else {
+<div class="empty">
+  <p>Cart Is empty <span class="text-bg-danger"> !</span></p>
+  <p>
+    <a
+      name=""
+      id=""
+      class="btn text-bg-danger"
+      [routerLink]="['/shop', 'all']"
+      role="button"
+      >shop</a
+    >
+  </p>
+</div>
+}

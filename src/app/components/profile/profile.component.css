@@ -1,0 +1,168 @@
+* {
+  box-sizing: border-box;
+
+}
+
+.edit {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+
+#spinnerInAdmin {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--background);
+  margin: auto;
+
+
+}
+
+.account-container {
+  /* background-color: var(--maincolor); */
+  background-color: black;
+  /* display: flex;
+    /* font-size: 0; */
+  /* gap: 50px;  */
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding-top: 20px;
+  width: 60%;
+  /* border-bottom: 1px solid rgb(160, 148, 148) ;
+    border-right: 1px solid rgb(160, 148, 148) ;
+    border-left:1px solid rgb(160, 148, 148) ; */
+  color: white;
+  box-shadow: 0 7px 28px rgba(179, 165, 165, 0.355),
+    0 10px 10px rgba(62, 70, 70, 0.2);
+  border-radius: 4px;
+
+
+}
+
+#root {
+  background-color: var(--background);
+  display: flex;
+  align-items: center;
+  height: 80vh;
+}
+
+/* body{
+    background-color: var(--background);
+  } */
+
+
+.AccSideBar {
+  height: fit-content;
+
+  /* width:fit-content; */
+
+
+}
+
+.userimage {
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+
+.AccSideBar .user-data p {
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  overflow-wrap: break-word;
+  margin: 0;
+  padding-bottom: 20px;
+}
+
+.user-data {
+  display: flex;
+  justify-content: space-around;
+}
+
+.box {
+  padding: 0px 30px;
+}
+
+.box div {
+  flex: 1;
+}
+
+.AccSideBar .user-data {
+  padding: 18px 15px 22px;
+}
+
+@media(max-width:768px) {
+  .AccSideBar div.user-data {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    align-content: center;
+    padding: 0 10px;
+
+
+  }
+
+  .box {
+    padding: 0 5px;
+  }
+
+  .AccSideBar .user-data p {
+    font-size: 11px;
+    padding-bottom: 5px;
+    padding: 0 5px 10px;
+  }
+
+  .box div {
+    display: flex;
+  }
+
+  .account-container {
+    width: 70%;
+  }
+
+
+}
+
+
+.AccSideBar .user-data .avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 12px;
+}
+
+.AccSideBar .user-data .label {
+  color: white;
+  font-size: 12px;
+  font-weight: 300;
+  padding-bottom: 0;
+}
+
+.edit {
+  /* margin: 10px 0; */
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+
+
+
+
+a {
+  text-decoration: none;
+  color: #101010;
+}
+
+
+
+/* ////////////////////////////// */
+
+
+
+.container-width {
+  width: 101%;
+}

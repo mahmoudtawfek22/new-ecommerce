@@ -1,0 +1,18 @@
+.price {
+  text-decoration: line-through;
+}
+
+/* HTML: <div class="loader"></div> */
+
+.images img:hover {
+
+  transform: scale(1.4);
+  transition: .5s;
+
+}
+
+.container {
+  height: 80vh;
+  margin: auto;
+  padding-top: 15px;
+}

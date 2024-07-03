@@ -1,0 +1,157 @@
+.cart-container {
+  background-color: gainsboro;
+  padding-top: 40px;
+  padding-bottom: .05px;
+}
+
+.box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: white;
+  margin-bottom: 40px;
+  position: relative;
+  border-radius: 10px;
+}
+
+.box img {
+
+  height: 180px;
+}
+
+.text {
+  padding-top: 8px;
+  display: flex;
+  flex-direction: column;
+  flex: .5;
+  justify-content: center;
+  align-content: center;
+}
+
+.counter {
+  display: flex;
+  transform: translateY(15%);
+
+}
+
+.box:hover {
+  transform: scale(1.05);
+}
+
+.counter p, .counter p .btn {
+  font-weight: 900;
+
+}
+
+.counter p {
+  display: flex;
+  align-items: center;
+  padding-left: 7px;
+  padding-right: 7px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.price {
+  display: flex;
+  transform: translateY(15%);
+  font-size: large;
+  font-weight: 500;
+
+}
+
+@media(max-width:991px) {
+
+  .text h3 {
+    font-size: 20px;
+  }
+
+  .text p {
+    line-height: 15px;
+  }
+
+  .box img {
+    height: 140px;
+  }
+
+  .counter p, .counter p .btn {
+    font-weight: 700;
+
+  }
+}
+
+@media(max-width:768px) {
+  .box {
+    flex-direction: column;
+
+  }
+
+  .text {
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .text p {
+    line-height: 20px;
+    text-align: center;
+  }
+
+  .text h3 {
+    text-align: center;
+  }
+
+  .box img {
+    height: 140px;
+  }
+
+  .counter p, .counter p .btn {
+    font-weight: 700;
+
+  }
+}
+
+.cart-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.empty {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: gainsboro;
+}
+
+.empty p {
+  font-size: 50px;
+  font-weight: 500;
+  color: rgb(58, 109, 197);
+}
+
+.empty p span {
+  font-size: 50px;
+  font-weight: 500;
+}
+
+.empty .btn {
+  background-color: aqua;
+  color: white;
+  width: 150px;
+  text-align: center;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  font-weight: 400;
+
+}

@@ -1,0 +1,128 @@
+.shop-container {
+  background-color: gainsboro;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 20px;
+}
+
+
+.product {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  height: 540px;
+  position: relative;
+
+}
+
+.discount {
+  text-decoration: line-through;
+  font-size: smaller;
+}
+
+.sale {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: red;
+  width: 50px;
+  text-align: center;
+  color: white;
+  border-top-left-radius: 6px;
+
+}
+
+.prd-image img {
+  height: 240px;
+}
+
+@media(max-width:768px) {
+  .product {
+    height: 510px;
+
+  }
+
+  .prd-image img {
+    height: 210px;
+  }
+
+}
+
+
+.card-text {
+  /* line-height: 15px; */
+
+  margin-top: 15px;
+  font-style: oblique;
+  font-size: small;
+  color: gray;
+
+}
+
+.cardbody {
+
+  height: 210px;
+
+}
+
+.card-title {
+  align-items: center;
+  height: 75px;
+  padding-top: 20px;
+  font-weight: 800;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.load {
+  height: 30vh;
+}
+
+.loader {
+  width: 50px;
+  margin: auto;
+  margin-top: 18%;
+
+  aspect-ratio: 1;
+  border-radius: 50%;
+  padding: 3px;
+  background:
+    radial-gradient(farthest-side, #6f4dd4 95%, #0000) 50% 0/12px 12px no-repeat,
+    radial-gradient(farthest-side, #0000 calc(100% - 5px), #222073 calc(100% - 4px)) content-box;
+  animation: l6 2s infinite;
+}
+
+@keyframes l6 {
+  to {
+    transform: rotate(1turn)
+  }
+}
+
+.search-catagory {
+  height: 150px;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  background: rgb(66, 99, 234);
+  background: linear-gradient(90deg, rgba(66, 99, 234, 1) 0%, rgba(90, 117, 226, 1) 52%, rgba(176, 183, 240, 1) 77%);
+}
+
+/* .search::before {
+  content: "";
+  height: 40px;
+  width: 1px;
+  position: absolute;
+
+  background-color: rgb(212, 200, 200);
+
+} */
+
+.search {
+  border-left: 1px solid white;
+}
+
+.product:hover {
+  transform: scale(1.03);
+  transition: .3s;
+}
