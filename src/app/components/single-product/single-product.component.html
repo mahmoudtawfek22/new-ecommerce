@@ -5,17 +5,11 @@
 }@else {
 <div class="container d-flex flex-md-row flex-sm-column flex-column gap-5 pb-3">
   <div class="image text-center mx-auto">
-    <img [src]="productImage" alt="" style="height: 400px; width: 350px" />
-    <div class="images d-flex justify-content-center">
+    <img [src]="productImage" alt="" />
+    <div class="images d-flex justify-content-center flex-wrap">
       @for (item of product?.images; track $index) {
       <div>
-        <img
-          [src]="item"
-          class="d-block"
-          style="height: 150px; width: 110px"
-          alt=""
-          (click)="change($index)"
-        />
+        <img [src]="item" class="d-block" alt="" (click)="change($index)" />
       </div>
 
       }
@@ -32,7 +26,7 @@
     </p>
 
     <p class="text-center text-md-start fs-4 fw-bold">
-      <span class="price fs-5 fw-normal">{{ product?.price }}</span>
+      <span class="price fs-5 fw-normal">{{ product?.price }}$</span>
       {{ product?.price | discount : product?.discountPercentage }}$
     </p>
 
