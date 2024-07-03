@@ -13,7 +13,7 @@
 
 }
 
-.nav-item .active {
+.active {
   color: rgb(66, 99, 234);
   font-size: large;
   font-weight: 700;
@@ -43,6 +43,16 @@
 
 .nav-link {
   color: white;
+
+}
+
+@media(max-width:768px) {
+
+  .nav-item {
+    padding: 0;
+    /* padding-right: auto;
+    padding-left: auto; */
+  }
 
 }
 

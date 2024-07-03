@@ -18,23 +18,46 @@
 }
 
 .image img {
-  height: 400px;
-  width: 350px
+  height: 300px;
+  width: 250px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .images img {
   height: 150px;
-  width: 110px
+  width: 100px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.images {
+  margin-top: 35px;
+  margin-bottom: 35px;
+
 }
 
 @media(max-width:767px) {
   .image img {
     height: 250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .images img {
     height: 80px;
-    width: 90px
+    width: 90px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 15px;
+
+  }
+
+  .images {
+    margin-top: 35px;
   }
 
 }

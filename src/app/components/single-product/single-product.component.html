@@ -3,10 +3,12 @@
   <div class="loader"></div>
 </div>
 }@else {
-<div class="container d-flex flex-md-row flex-sm-column flex-column gap-5 pb-3">
-  <div class="image text-center mx-auto">
-    <img [src]="productImage" alt="" />
-    <div class="images d-flex justify-content-center flex-wrap">
+<div
+  class="container d-flex flex-md-row flex-sm-column flex-column justify-content-center gap-md-5 gap-2 py-5"
+>
+  <div class="image text-center w-75 mx-auto">
+    <img [src]="productImage" alt="" class="my-auto" />
+    <div class="images d-flex justify-content-center flex-wrap flex-md-nowrap">
       @for (item of product?.images; track $index) {
       <div>
         <img [src]="item" class="d-block" alt="" (click)="change($index)" />
@@ -15,7 +17,7 @@
       }
     </div>
   </div>
-  <div class="text align-content-center align-content-center mx-auto">
+  <div class="text w-75 mx-auto pt-0 pt-md-4">
     <h2 class="text-sm-center text-center text-md-start fw-bold">
       {{ product?.title }}
     </h2>
@@ -29,25 +31,26 @@
       <span class="price fs-5 fw-normal">{{ product?.price }}$</span>
       {{ product?.price | discount : product?.discountPercentage }}$
     </p>
-
-    @if (product?.added==true) {
-    <a
-      name=""
-      id=""
-      class="btn btn-primary d-block"
-      (click)="addToCart()"
-      role="button"
-      >Remove From Cart</a
-    >}@else {
-    <a
-      name=""
-      id=""
-      class="btn btn-primary d-block"
-      (click)="addToCart()"
-      role="button"
-      >Add To Cart</a
-    >
-    }
+    <div class="mt-5 w-100">
+      @if (product?.added==true) {
+      <a
+        name=""
+        id=""
+        class="btn btn-primary d-block w-75 mx-auto mx-md-0"
+        (click)="addToCart()"
+        role="button"
+        >Remove From Cart</a
+      >}@else {
+      <a
+        name=""
+        id=""
+        class="btn btn-primary d-block w-75 mx-auto mx-md-0"
+        (click)="addToCart()"
+        role="button"
+        >Add To Cart</a
+      >
+      }
+    </div>
   </div>
 </div>
 }
