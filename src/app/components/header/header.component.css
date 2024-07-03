@@ -13,13 +13,11 @@
 
 }
 
-.active {
-  color: rgb(66, 99, 234);
+.nav-link.active {
+  color: var(--maincolor);
   font-size: large;
   font-weight: 700;
   transform: translateY(-4%);
-
-
 
 }
 
@@ -30,7 +28,6 @@
 
   transform: scale(1.3);
   transition: .3s;
-
 
 
 }
