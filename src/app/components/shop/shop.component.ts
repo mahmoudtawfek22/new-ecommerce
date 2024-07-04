@@ -36,9 +36,10 @@ export class ShopComponent {
   ) {
     // this.selectedCatagory = this.activatedRoute.snapshot.params['catagory'];
     this.selectedProducts = [];
-    window.scroll(0, 0);
   }
   ngOnInit(): void {
+    window.scroll(0, 0);
+
     this.addToCartSer.getCartProducts().subscribe((res) => {
       this.cartProducts = res;
     });

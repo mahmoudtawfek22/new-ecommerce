@@ -9,7 +9,7 @@ import AOS from 'aos';
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
-  headImage: string = 'assets/camera.jpg';
+  headImage: string;
   images: string[];
   catagories: string[];
   stop: any;
@@ -41,14 +41,15 @@ export class HomeComponent {
       'womens-watches',
     ];
     this.images = [
+      'assets/camera.jpg',
       'assets/glasses.jpg',
       'assets/watch.jpg',
       'assets/mobile.jpg',
       'assets/perfume.jpg',
       'assets/bag.jpg',
       'assets/watch2.jpg',
-      'assets/camera.jpg',
     ];
+    this.headImage = this.images[0];
   }
   index: number = 0;
   ngOnInit(): void {
@@ -66,10 +67,18 @@ export class HomeComponent {
   }
 
   startImageSlideshow() {
-    this.stop = setInterval(() => {
+    const interval = 5000; // Change image every 5 seconds
+    const transitionDuration = 1000; // Match this duration with CSS transition duration
+
+    const slide = () => {
       this.index = (this.index + 1) % this.images.length;
       this.changeImage();
-    }, 5000); // Change image every 5 seconds
+      this.stop = setTimeout(() => {
+        requestAnimationFrame(slide);
+      }, interval - transitionDuration);
+    };
+
+    requestAnimationFrame(slide);
   }
 
   changeImage() {
