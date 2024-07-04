@@ -48,6 +48,7 @@ export class HomeComponent {
       'assets/perfume.jpg',
       'assets/bag.jpg',
       'assets/watch2.jpg',
+      'assets/camera.jpg',
     ];
     this.headImage = this.images[0];
   }
@@ -55,40 +56,27 @@ export class HomeComponent {
   ngOnInit(): void {
     AOS.init();
     this.startImageSlideshow();
-    // let index = 0;
-    // this.stop = setInterval(() => {
+    window.addEventListener('scroll', () => {
+      if (scrollY >= 733) {
+        clearInterval(this.stop);
+        // clearTimeout(this.timeout);
+      } else {
+        clearInterval(this.stop);
 
-    //   if (index == this.images.length) {
-    //     index = 0;
-    //   }
-    //   this.headImage = this.images[index];
-    //   index++;
-    // }, 5000);
+        this.startImageSlideshow();
+        // clearInterval(this.stop);
+      }
+    });
   }
 
   startImageSlideshow() {
-    const interval = 5000; // Change image every 5 seconds
-    const transitionDuration = 1000; // Match this duration with CSS transition duration
-
-    const slide = () => {
+    this.stop = setInterval(() => {
       this.index = (this.index + 1) % this.images.length;
-      this.changeImage();
-      this.stop = setTimeout(() => {
-        requestAnimationFrame(slide);
-      }, interval - transitionDuration);
-    };
+      const imgElement = document.querySelector('#head-image') as HTMLElement;
+      imgElement.classList.replace('head-image', 'hide');
 
-    requestAnimationFrame(slide);
-  }
-
-  changeImage() {
-    const imgElement = document.querySelector('.head-image') as HTMLElement;
-    imgElement.classList.add('hide');
-
-    setTimeout(() => {
       this.headImage = this.images[this.index];
-      imgElement.classList.remove('hide');
-    }, 1000); // Match this delay to the transition duration in CSS
+    }, 5000);
   }
   ngOnDestroy(): void {
     clearInterval(this.stop);
