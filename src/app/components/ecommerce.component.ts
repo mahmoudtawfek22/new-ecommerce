@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { SingleProductComponent } from './single-product/single-product.component';
 import { CartComponent } from './cart/cart.component';
 import { FooterComponent } from './footer/footer.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-ecommerce',
@@ -28,6 +29,7 @@ import { FooterComponent } from './footer/footer.component';
     CartComponent,
     RouterModule,
     FooterComponent,
+    FontAwesomeModule,
   ],
   templateUrl: './ecommerce.component.html',
   styleUrl: './ecommerce.component.css',
