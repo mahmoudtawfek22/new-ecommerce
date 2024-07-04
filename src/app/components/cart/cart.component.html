@@ -16,7 +16,7 @@
         <p><i class="fas fa-star gold-star"></i>{{ item.rating }}</p>
       </div>
       <div class="price">
-        <p>{{ item.priceAfterDiscount }}</p>
+        <p>{{ item.price | discount : item.discountPercentage }}$</p>
       </div>
       <div class="counter">
         <p>

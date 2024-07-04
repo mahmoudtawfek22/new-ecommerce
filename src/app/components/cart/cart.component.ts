@@ -4,11 +4,12 @@ import { Product } from '../../product';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { DiscountPipe } from '../../pipes/discount.pipe';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink, DiscountPipe],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css',
 })
