@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { DiscountPipe } from '../../pipes/discount.pipe';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-cart',
@@ -17,8 +18,15 @@ export class CartComponent {
   cartProducts!: Product[];
   totalPrice: number = 0;
   quantities!: number[];
-  constructor(private addToCartSer: AddToCartService) {}
+  token!: string;
+  constructor(
+    private addToCartSer: AddToCartService,
+    private auth: AuthService
+  ) {}
   ngOnInit(): void {
+    this.auth.getToken().subscribe((res) => {
+      this.token = res;
+    });
     this.addToCartSer.getCartProducts().subscribe((res) => {
       this.cartProducts = res;
       // this.quantities = this.addToCartSer.quantity;

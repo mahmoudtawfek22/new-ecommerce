@@ -53,11 +53,17 @@
   display: flex;
   justify-content: center;
   /* padding-left: 0; */
-  animation: scale-up-center 3s infinite;
+  animation: scale-up-center 4s infinite;
 }
 
 
+.text .shop-button:hover {
 
+
+  /* padding-left: 0; */
+  animation: none;
+
+}
 
 
 
@@ -150,8 +156,9 @@
   font-size: 40px;
   position: relative;
   margin-bottom: 60px;
-  margin-top: 20px;
+  padding-top: 10px;
   text-transform: uppercase;
+
 }
 
 .main-heading::before {
@@ -184,7 +191,6 @@
   background-size: 100% 100%;
   background-attachment: fixed;
   background-position: left center;
-
 }
 
 .catagories {
@@ -193,21 +199,24 @@
 }
 
 .catagories-list p a {
-
+  color: rgb(16, 15, 15);
   font-size: x-large;
   font-weight: 500;
-  border: solid 1px black;
+  border: solid 1px rgba(93, 89, 89, 0.3);
   border-radius: 10px;
   box-sizing: border-box;
-
-
-
+  background-color: rgba(197, 196, 196, 0.5);
+  transition: .4s ease-in;
+  text-transform: capitalize;
 }
 
 .catagories-list p a:hover {
 
-  color: rgb(213, 213, 227);
-  ;
+  /* color: rgb(64, 64, 129); */
+  background-color: rgba(241, 235, 235, 0.8);
+  border-bottom: solid 2px var(--maincolor);
+  background-color: linear-gradient(transparent 20%, red 80%, transparent 100%);
+
 }
 
 
@@ -215,13 +224,14 @@
 
 
 .scale-up-center:hover {
-  -webkit-animation: scale-up-center 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-  animation: scale-up-center 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  -webkit-animation: scale-up-center 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: scale-up-center 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
 .brand-image {
   height: 200px;
-  width: 100%;
+  object-fit: contain;
+  aspect-ratio: 3 / 2;
 }
 
 
@@ -287,9 +297,11 @@
   width: fit-content;
 }
 
+
+
 .flip-vertical-right:hover {
-  -webkit-animation: flip-vertical-right 0.6s cubic-bezier(0.455, 0.030, 0.515, 0.955) alternate forwards;
-  animation: flip-vertical-right 0.6s cubic-bezier(0.455, 0.030, 0.515, 0.955) alternate forwards;
+  -webkit-animation: flip-vertical-right 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) alternate forwards;
+  animation: flip-vertical-right 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) alternate forwards;
 }
 
 /* ----------------------------------------------

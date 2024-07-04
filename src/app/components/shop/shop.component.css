@@ -10,7 +10,12 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   height: 540px;
   position: relative;
+  transition: .4s ease-in-out;
 
+}
+
+.product:hover {
+  transform: scale(1.03);
 }
 
 .discount {
@@ -120,9 +125,4 @@
 
 .search {
   border-left: 1px solid white;
-}
-
-.product:hover {
-  transform: scale(1.03);
-  transition: .3s;
 }

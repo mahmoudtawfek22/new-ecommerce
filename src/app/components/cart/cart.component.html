@@ -55,7 +55,12 @@
     <p class="total text-center fs-1">total price: {{ totalPrice }}</p>
 
     <div class="d-flex justify-content-center mb-3">
-      <button type="button" class="btn btn-primary" (click)="placeOrder()">
+      <button
+        type="button"
+        [disabled]="!token"
+        class="btn btn-primary"
+        (click)="placeOrder()"
+      >
         Place Order
       </button>
     </div>

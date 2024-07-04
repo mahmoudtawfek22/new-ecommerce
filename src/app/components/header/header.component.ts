@@ -29,19 +29,12 @@ export class HeaderComponent {
     private router: Router,
     private authService: AuthService
   ) {
-    // this.token = localStorage.getItem('token');
-    console.log(this.token);
-
     this.router.events.subscribe((event) => {
-      // if (event instanceof NavigationEnd) {
-
       this.isShopActive = this.router.url.startsWith('/shop');
-      // }
     });
   }
   orderedProducstNum: number = 0;
   ngOnInit(): void {
-    // this.token = localStorage.getItem('token');
     this.authService.getToken().subscribe((res) => {
       this.token = res;
     });
@@ -49,9 +42,7 @@ export class HeaderComponent {
       this.orderedProducstNum = res.length;
     });
   }
-  go(roure: string) {
-    this.router.navigate([roure]);
-  }
+
   logout() {
     // localStorage.removeItem('token');
     // this.cookie.delete('token');

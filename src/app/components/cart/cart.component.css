@@ -16,6 +16,8 @@
   margin-bottom: 40px;
   position: relative;
   border-radius: 10px;
+  transition: .4s ease-in-out;
+
 }
 
 .box img {
