@@ -36,9 +36,9 @@ export class ShopComponent {
   ) {
     // this.selectedCatagory = this.activatedRoute.snapshot.params['catagory'];
     this.selectedProducts = [];
+    window.scroll(0, 0);
   }
   ngOnInit(): void {
-    window.scrollTo(0, 0);
     this.addToCartSer.getCartProducts().subscribe((res) => {
       this.cartProducts = res;
     });
@@ -80,15 +80,6 @@ export class ShopComponent {
               ).toFixed(2)
             );
           });
-
-          // let buyed = this.cartProducts.map((cartProduct) =>
-          //   this.selectedProducts.findIndex(
-          //     (product) => product.id === cartProduct.id
-          //   )
-          // );
-          // buyed.forEach((index) => {
-          //   this.selectedProducts[index].added = true;
-          // });
         },
         error: (err: Error) => {
           console.log(err);
@@ -128,13 +119,6 @@ export class ShopComponent {
     }
   }
 
-  // ngOnDestroy(): void {
-  //   //Called once, before the instance is destroyed.
-  //   //Add 'implements OnDestroy' to the class.
-  //   this.stop.unsubscribe;
-  // }
-
-  // addButton="Add to Cart"
   addToCart(product: Product, ev: Event, index: number) {
     let ele: HTMLElement = ev.target as HTMLElement;
 
@@ -142,21 +126,17 @@ export class ShopComponent {
       this.addToCartSer.add(product);
 
       this.selectedProducts[index].added = true;
-      // ele.innerText = 'Remove From Cart';
     } else if (ele.innerText == 'Remove From Cart') {
       let i = this.cartProducts.findIndex((prd) => prd.id == product.id);
       this.addToCartSer.delteProduct(i);
       console.log(index);
-      // ele.innerText = 'Add To Cart';
       this.selectedProducts[index].added = false;
     }
   }
 
   search() {
-    // const inputElement = ev.target as HTMLInputElement;
     const searchTerm = this.searchValue.toLowerCase();
 
-    // Filter products based on the search term
     this.selectedProducts = this.lastProducts.filter((prd) =>
       prd.title.toLowerCase().includes(searchTerm)
     );

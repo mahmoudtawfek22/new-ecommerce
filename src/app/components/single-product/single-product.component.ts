@@ -23,9 +23,11 @@ export class SingleProductComponent {
     private products: ProductsService,
     private activatesRoute: ActivatedRoute,
     private addToCartSer: AddToCartService
-  ) {}
+  ) {
+    window.scroll(0, 0);
+  }
   ngOnInit(): void {
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
     let id = this.activatesRoute.snapshot.params['id'];
 
     this.addToCartSer.getCartProducts().subscribe((res) => {

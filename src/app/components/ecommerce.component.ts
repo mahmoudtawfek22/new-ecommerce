@@ -36,6 +36,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 })
 export class EcommerceComponent {
   ngOnInit(): void {
+    window.scroll(0, 0);
+
     let up = document.getElementById('up');
     window.addEventListener('scroll', () => {
       if (window.scrollY >= 400) {

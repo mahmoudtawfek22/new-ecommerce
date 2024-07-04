@@ -1,8 +1,6 @@
 @if (cartProducts.length>=1) {
 
 <div class="cart-container">
-  <!-- @for (quantity of quantities; track $index) { -->
-  <!-- <ng-container> -->
   <ng-container>
     @for (item of cartProducts; track $index) {
 
@@ -50,8 +48,7 @@
     </div>
 
     }
-    <!-- </ng-container> -->
-    <!-- } -->
+
     <p class="total text-center fs-1">total price: {{ totalPrice }}</p>
 
     <div class="d-flex justify-content-center mb-3">

@@ -22,7 +22,9 @@ export class CartComponent {
   constructor(
     private addToCartSer: AddToCartService,
     private auth: AuthService
-  ) {}
+  ) {
+    window.scroll(0, 0);
+  }
   ngOnInit(): void {
     this.auth.getToken().subscribe((res) => {
       this.token = res;
