@@ -73,7 +73,6 @@ export class HomeComponent {
     this.stop = setInterval(() => {
       this.index = (this.index + 1) % this.images.length;
       const imgElement = document.querySelector('#head-image') as HTMLElement;
-      imgElement.classList.replace('head-image', 'hide');
 
       this.headImage = this.images[this.index];
     }, 5000);

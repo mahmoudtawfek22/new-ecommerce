@@ -35,10 +35,12 @@ export class ShopComponent {
     private router: Router
   ) {
     // this.selectedCatagory = this.activatedRoute.snapshot.params['catagory'];
+    window.scroll(0, 0);
+
     this.selectedProducts = [];
   }
   ngOnInit(): void {
-    window.scroll(0, 0);
+    // window.scroll(0, 0);
 
     this.addToCartSer.getCartProducts().subscribe((res) => {
       this.cartProducts = res;
