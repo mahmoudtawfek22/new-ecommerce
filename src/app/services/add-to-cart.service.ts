@@ -25,11 +25,9 @@ export class AddToCartService {
       this.quantity.push(1);
       this.quantities.next(this.quantity);
       this.cartProducts.next(this.products);
-      console.log(this.products);
     }
   }
   getCartProducts(): Observable<Product[]> {
-    console.log(this.products);
     return this.cartProducts;
   }
 
@@ -39,8 +37,6 @@ export class AddToCartService {
     this.quantity.splice(index, 1);
     this.cartProducts.next(this.products);
     this.quantities.next(this.quantity);
-
-    console.log(this.products);
   }
   increaseQuantities(index: number) {
     this.quantity[index]++;
