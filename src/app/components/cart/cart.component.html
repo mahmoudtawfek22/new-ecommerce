@@ -1,9 +1,7 @@
-@if (cartProducts.length>=1) {
-
+@if (cartProducts.length >= 1) {
 <div class="cart-container">
   <ng-container>
     @for (item of cartProducts; track $index) {
-
     <div class="box">
       <div class="image">
         <img [src]="item.thumbnail" alt="" />
@@ -46,10 +44,11 @@
         ></button>
       </div>
     </div>
-
     }
 
-    <p class="total text-center fs-1">total price: {{ totalPrice }}</p>
+    <p class="total text-center fs-1">
+      {{ "totalPrice" | translate }}: {{ totalPrice }}
+    </p>
 
     <div class="d-flex justify-content-center mb-3">
       <button
@@ -58,23 +57,21 @@
         class="btn btn-primary"
         (click)="placeOrder()"
       >
-        Place Order
+        {{ "placeOrder" | translate }}
       </button>
     </div>
   </ng-container>
 </div>
-}@else {
+} @else {
 <div class="empty">
-  <p>Cart Is empty <span class="text-bg-danger"> !</span></p>
   <p>
-    <a
-      name=""
-      id=""
-      class="btn text-bg-danger"
-      [routerLink]="['/shop', 'all']"
-      role="button"
-      >shop</a
-    >
+    {{ "cartIsEmpty" | translate }}
+    <span class="text-bg-danger"> !</span>
+  </p>
+  <p>
+    <a class="btn text-bg-danger" [routerLink]="['/shop', 'all']" role="button">
+      {{ "shop" | translate }}
+    </a>
   </p>
 </div>
 }

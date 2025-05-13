@@ -12,27 +12,20 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent {
   userData: any;
-  token!: string;
+  token: string = this.auth.token;
 
   constructor(
     private auth: AuthService,
     private cookie: CookieService,
     private router: Router
-  ) {
-    // this.token = '';
-  }
+  ) {}
   ngOnInit(): void {
     this.auth.getToken().subscribe((res) => {
       this.token = res;
-      if (!this.token) {
-        this.router.navigate(['/login']);
-      }
     });
 
     this.auth.userdetails(this.token).subscribe((res) => {
       this.userData = res;
-
-      console.log(res);
     });
     // this.userData = {
     //   id: 7,

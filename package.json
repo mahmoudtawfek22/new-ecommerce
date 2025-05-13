@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "packagr": "ng-packagr -p ng-package.json"
   },
   "private": true,
   "dependencies": {
@@ -22,12 +23,18 @@
     "@fortawesome/angular-fontawesome": "^0.15.0",
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@ngrx/store": "^18.1.1",
+    "@ngx-translate/core": "^15.0.0",
+    "@ngx-translate/http-loader": "^8.0.0",
     "@npmcli/package-json": "^5.2.0",
     "aos": "^3.0.0-beta.6",
     "bootstrap": "^5.3.3",
+    "e-commerce": "file:",
+    "filepond": "^4.31.3",
     "glob": "^10.4.2",
     "lru-cache": "^10.2.2",
     "ngx-cookie-service": "^18.0.0",
+    "ngx-filepond": "^7.0.3",
     "rimraf": "^5.0.7",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
@@ -45,6 +52,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "ng-packagr": "^18.2.1",
     "typescript": "~5.4.2"
   }
 }

@@ -12,22 +12,36 @@ import { AddToCartService } from '../../services/add-to-cart.service';
 import { CommonModule } from '@angular/common';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from '../../services/auth.service';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { LanguageService } from '../../services/language.service';
+import { Store } from '@ngrx/store';
+import { changeLang } from '../../store/language/lang.action';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLinkActive, RouterLink, RouterModule, CommonModule],
+  imports: [
+    RouterLinkActive,
+    RouterLink,
+    RouterModule,
+    CommonModule,
+    TranslateModule,
+  ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
   faCoffee = faCoffee;
   isShopActive = false;
-  token!: string;
+  token: string = this.authService.token;
+  language: string = '';
   constructor(
     private addToCartSer: AddToCartService,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private langSer: LanguageService,
+    public translateSer: TranslateService,
+    private store: Store<{ lang: string }>
   ) {
     this.router.events.subscribe((event) => {
       this.isShopActive = this.router.url.startsWith('/shop');
@@ -41,8 +55,19 @@ export class HeaderComponent {
     this.addToCartSer.getCartProducts().subscribe((res) => {
       this.orderedProducstNum = res.length;
     });
+
+    this.store.select('lang').subscribe((lang) => {
+      this.language = lang;
+    });
   }
 
+  changeLang() {
+    this.language == 'en'
+      ? this.store.dispatch(changeLang({ lang: 'ar' }))
+      : this.store.dispatch(changeLang({ lang: 'en' }));
+
+    this.langSer.trans();
+  }
   logout() {
     // localStorage.removeItem('token');
     // this.cookie.delete('token');

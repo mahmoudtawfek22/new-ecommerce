@@ -10,9 +10,9 @@ import { CookieService } from 'ngx-cookie-service';
 export class AuthService {
   options;
   tokenSubject: BehaviorSubject<string>;
-  token: string;
+  token!: string;
   constructor(private http: HttpClient, private cookie: CookieService) {
-    this.token = cookie.get('token');
+    // this.token = cookie.get('token');
     this.tokenSubject = new BehaviorSubject<string>('');
     this.options = {
       headers: new HttpHeaders({
@@ -26,6 +26,7 @@ export class AuthService {
   }
   setToken(token: string) {
     this.cookie.set('token', token);
+    this.token = this.cookie.get('token');
     this.tokenSubject.next(token);
   }
   logout() {

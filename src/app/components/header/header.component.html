@@ -25,7 +25,7 @@
               [routerLink]="['/home']"
               routerLinkActive="active"
               [routerLinkActiveOptions]="{ exact: true }"
-              >Home</a
+              >{{ "home" | translate }}</a
             >
           </li>
 
@@ -36,26 +36,27 @@
               routerLinkActive="active"
               [routerLinkActiveOptions]="{ exact: false }"
               [ngClass]="{ active: isShopActive }"
-              >Shop</a
+              >{{ "shop" | translate }}</a
             >
           </li>
-
+          @if (token) {
           <li class="nav-item">
             <a
               class="nav-link"
               routerLink="/profile"
               routerLinkActive="active"
               [routerLinkActiveOptions]="{ exact: true }"
-              >Profile</a
+              >{{ "profile" | translate }}</a
             >
           </li>
+          }
         </ul>
       </div>
     </nav>
   </div>
 
   <div class="brand navbar-brand text-primary text-center my-2 my-sm-0 col-4">
-    <h2 class="rotate-center">Shop</h2>
+    <h2 class="rotate-center">{{ "shop" | translate }}</h2>
   </div>
   <div class="inputs col-4 my-2 my-sm-0">
     <div class="d-flex align-items-center">
@@ -69,6 +70,11 @@
           <i class="fa fa-cart-plus"></i>
         </div>
       </div>
+      <p>
+        <button (click)="changeLang()" class="lang">
+          <i class="fa-solid fa-language"></i>
+        </button>
+      </p>
       @if (token) {
       <div
         class="icon d-flex flex-column mx-auto text-center align-items-center justify-content-center"
@@ -80,14 +86,16 @@
           (click)="logout()"
           href="#"
           role="button"
-          >logout</a
+          >{{ "logOut" | translate }}</a
         >
       </div>
       }@else {
       <div
         class="icon d-flex flex-column mx-auto text-center align-items-center justify-content-center flip-vertical-right"
       >
-        <button routerLink="/login" class="btn btn-light">Join</button>
+        <button routerLink="/login" class="btn btn-light">
+          {{ "join" | translate }}
+        </button>
       </div>
       }
     </div>

@@ -149,3 +149,18 @@
     transform: rotateY(360deg);
   }
 }
+
+.lang {
+  background-color: black;
+  border: black;
+  transform: translateY(20%);
+
+}
+
+.lang i {
+  padding: 10px;
+
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}

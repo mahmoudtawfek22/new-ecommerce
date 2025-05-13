@@ -11,11 +11,19 @@ import {
 } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AddToCartService } from '../../services/add-to-cart.service';
+import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-shop',
   standalone: true,
-  imports: [RouterLink, FormsModule, RouterModule],
+  imports: [
+    RouterLink,
+    FormsModule,
+    RouterModule,
+    CommonModule,
+    TranslateModule,
+  ],
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.css',
 })
@@ -38,6 +46,10 @@ export class ShopComponent {
     window.scroll(0, 0);
 
     this.selectedProducts = [];
+  }
+
+  trackByIndex(index: number, item: any): number {
+    return index;
   }
   ngOnInit(): void {
     // window.scroll(0, 0);
@@ -125,14 +137,13 @@ export class ShopComponent {
   addToCart(product: Product, ev: Event, index: number) {
     let ele: HTMLElement = ev.target as HTMLElement;
 
-    if (ele.innerText == 'Add To Cart') {
+    if (product?.added != true && product) {
       this.addToCartSer.add(product);
 
       this.selectedProducts[index].added = true;
-    } else if (ele.innerText == 'Remove From Cart') {
+    } else if (product?.added == true && product) {
       let i = this.cartProducts.findIndex((prd) => prd.id == product.id);
       this.addToCartSer.delteProduct(i);
-      console.log(index);
       this.selectedProducts[index].added = false;
     }
   }

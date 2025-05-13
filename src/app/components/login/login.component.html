@@ -3,13 +3,15 @@
     <main>
       <div class="left-side">
         <div class="welcome">
-          <div class="logo"><span>Shop</span></div>
-          <p>Welcome Back !</p>
+          <div class="logo">
+            <span>{{ "login.shop" | translate }}</span>
+          </div>
+          <p>{{ "login.welcomeBack" | translate }}</p>
         </div>
       </div>
       <div class="right-side">
         <form (ngSubmit)="submit(user)" #loginform="ngForm" method="post">
-          <h4>Login</h4>
+          <h4>{{ "login.login" | translate }}</h4>
 
           <div class="input-field">
             <i class="fa-solid fa-user"></i>
@@ -20,30 +22,32 @@
               (click)="hide()"
               name="username"
               minlength="5"
-              placeholder="Username"
+              [placeholder]="'login.username' | translate"
               [(ngModel)]="user.username"
               #username="ngModel"
             />
           </div>
-          @if (username.invalid&&username.touched) {
+
+          @if (username.invalid && username.touched) {
           <div>
-            @if (username.errors?.["required"]) {
-            <span class="text-danger">username is required</span>
-
-            } @if (username.errors?.["minlength"]) {
-            <small class="text-danger"
-              >username must be more than 5 digits</small
-            >
-
+            @if (username.errors?.['required']) {
+            <span class="text-danger">{{
+              "login.usernameRequired" | translate
+            }}</span>
+            } @if (username.errors?.['minlength']) {
+            <small class="text-danger">{{
+              "login.usernameMinLength" | translate
+            }}</small>
             }
           </div>
           }
+
           <div class="input-field">
             <i class="fas fa-lock"></i>
             <input
               type="password"
               id="password"
-              placeholder="Password"
+              [placeholder]="'login.password' | translate"
               name="password"
               minlength="5"
               (click)="hide()"
@@ -52,31 +56,37 @@
               #password="ngModel"
             />
           </div>
-          @if (password.invalid&&password.touched) {
+
+          @if (password.invalid && password.touched) {
           <div>
-            @if (password.errors?.["required"]) {
-            <span class="text-danger">password is required</span>
-
-            } @else if (password.errors?.["minlength"]) {
-            <small class="text-danger"
-              >password must be more than 5 digits</small
-            >
-
+            @if (password.errors?.['required']) {
+            <span class="text-danger">{{
+              "login.passwordRequired" | translate
+            }}</span>
+            } @else if (password.errors?.['minlength']) {
+            <small class="text-danger">{{
+              "login.passwordMinLength" | translate
+            }}</small>
             }
           </div>
-          } @if (loginform.valid&&valid==false) {
-          <span class="text-danger message">{{ message }}</span
-          >}
-          <input id="submit" type="submit" value="LOGIN" />
+          } @if (loginform.valid && valid == false) {
+          <span class="text-danger message">{{ message }}</span>
+          }
+
+          <input
+            id="submit"
+            type="submit"
+            [value]="'login.loginButton' | translate"
+          />
+
           <div>
             <a
-              name=""
-              id=""
               [routerLink]="['/home']"
               class="text-decoration-none"
               role="button"
-              >as aguest</a
             >
+              {{ "login.guest" | translate }}
+            </a>
           </div>
         </form>
       </div>

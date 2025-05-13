@@ -5,7 +5,7 @@
       data-aos-easing="ease-in-sine"
       data-aos-duration="300"
     >
-      Incredible Prices
+      {{ "Incredible Prices" | translate }}
     </p>
 
     <p
@@ -13,24 +13,26 @@
       data-aos-easing="ease-in-sine"
       data-aos-duration="400"
     >
-      on All Your
+      {{ "on All Your" | translate }}
     </p>
+
     <p
       data-aos="fade-right"
       data-aos-easing="ease-in-sine"
       data-aos-duration="500"
     >
-      Favorite Items
+      {{ "Favorite Items" | translate }}
     </p>
+
     <p
       data-aos="fade-right"
       data-aos-easing="ease-in-sine"
       data-aos-duration="600"
       data-aos-anchor-placement="top-bottom"
-      class=""
     >
-      Get more for less on selected brands
+      {{ "Get more for less on selected brands" | translate }}
     </p>
+
     <div
       class="shop-button"
       data-aos="fade-right"
@@ -38,23 +40,28 @@
       data-aos-duration="700"
       data-aos-anchor-placement="top-bottom"
     >
-      <button type="button " routerLink="/shop/all" class="btn btn-primary">
-        Shop Now
+      <button type="button" routerLink="/shop/all" class="btn btn-primary">
+        {{ "Shop Now" | translate }}
       </button>
     </div>
   </div>
+
   <div class="himage">
     <img class="head-image" id="head-image" [src]="headImage" alt="" />
   </div>
 </div>
+
 <section class="catagories sections">
   <div
     class="main-heading"
     data-aos-anchor-placement="bottom-bottom"
     data-aos="fade-up"
   >
-    <h1 class="text-center rotate-center py-5">Catagories</h1>
+    <h1 class="text-center rotate-center py-5">
+      {{ "Catagories" | translate }}
+    </h1>
   </div>
+
   <div class="catList" class="mx-3">
     <div class="row text-center mx-auto gap-lg-3 gap-sm-4 catagories-list">
       @for (catagory of catagories; track $index) {
@@ -64,17 +71,18 @@
         data-aos-duration="1000"
         data-aos="fade-up"
       >
-        <a [routerLink]="['/shop', catagory]" class="list-group-item">{{
-          catagory
-        }}</a>
+        <a [routerLink]="['/shop', catagory]" class="list-group-item">
+          {{ catagory | translate }}
+        </a>
       </p>
       }
     </div>
   </div>
 </section>
+
 <section class="sections brand">
   <div class="main-heading" data-aos="fade-up">
-    <h1 class="text-center rotate-center py-5">Brands</h1>
+    <h1 class="text-center rotate-center py-5">{{ "Brands" | translate }}</h1>
   </div>
 
   <div class="row row-cols-2 row-cols-md-3 g-4 m-auto">
@@ -83,25 +91,27 @@
         <img
           src="assets/AMD-Logo-500x313-min.png"
           class="card-img-top brand-image flip-vertical-right"
-          alt="..."
+          alt="AMD Logo"
         />
       </div>
     </div>
+
     <div class="col" data-aos="zoom-in" data-aos-duration="1000">
       <div class="card">
         <img
           src="assets/Apple-Logo-500x281-min.png"
           class="card-img-top brand-image flip-vertical-right"
-          alt="..."
+          alt="Apple Logo"
         />
       </div>
     </div>
+
     <div class="col" data-aos="zoom-in" data-aos-duration="1000">
       <div class="card">
         <img
           src="assets/Gucci-PNG-Image-1024x662_530x@2x.webp"
           class="card-img-top brand-image flip-vertical-right"
-          alt="..."
+          alt="Gucci Logo"
         />
       </div>
     </div>
@@ -111,34 +121,37 @@
         <img
           src="assets/Louis-Vuitton-Logo+2021.jpg"
           class="card-img-top brand-image flip-vertical-right"
-          alt="..."
+          alt="Louis Vuitton Logo"
         />
       </div>
     </div>
+
     <div class="col" data-aos="zoom-in" data-aos-duration="1000">
       <div class="card">
         <img
           src="assets/LOreal-logo-500x281-min.png"
           class="card-img-top brand-image flip-vertical-right"
-          alt="..."
+          alt="L'Oreal Logo"
         />
       </div>
     </div>
+
     <div class="col" data-aos="zoom-in" data-aos-duration="1000">
       <div class="card">
         <img
           src="assets/Samsung-Logo-2-500x281-min.png"
           class="card-img-top brand-image flip-vertical-right"
-          alt="..."
+          alt="Samsung Logo"
         />
       </div>
     </div>
+
     <div class="col" data-aos="zoom-in" data-aos-duration="1000">
       <div class="card">
         <img
           src="assets/Nike-Logo-500x281-min.png"
           class="card-img-top brand-image flip-vertical-right"
-          alt="..."
+          alt="Nike Logo"
         />
       </div>
     </div>
@@ -148,7 +161,7 @@
         <img
           src="assets/HM-logotype-monogram-1024x640.avif"
           class="card-img-top brand-image flip-vertical-right"
-          alt="..."
+          alt="H&M Logo"
         />
       </div>
     </div>
@@ -158,7 +171,7 @@
         <img
           src="assets/Playstation_logo_colour.svg.png"
           class="card-img-top brand-image flip-vertical-right"
-          alt="..."
+          alt="PlayStation Logo"
         />
       </div>
     </div>

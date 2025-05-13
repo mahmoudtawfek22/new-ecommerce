@@ -4,11 +4,12 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Product } from '../../product';
 import { DiscountPipe } from '../../pipes/discount.pipe';
 import { AddToCartService } from '../../services/add-to-cart.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-single-product',
   standalone: true,
-  imports: [DiscountPipe, RouterModule],
+  imports: [DiscountPipe, RouterModule, TranslateModule],
   templateUrl: './single-product.component.html',
   styleUrl: './single-product.component.css',
 })
@@ -49,9 +50,7 @@ export class SingleProductComponent {
           ).toFixed(2)
         );
 
-        console.log(this.product.priceAfterDiscount);
         this.productImage = this.product.thumbnail;
-        // this.productImages = this.product.images;
         this.load = false;
       },
       error: (err: Error) => {

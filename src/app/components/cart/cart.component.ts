@@ -6,11 +6,18 @@ import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { DiscountPipe } from '../../pipes/discount.pipe';
 import { AuthService } from '../../services/auth.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink, DiscountPipe],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterLink,
+    DiscountPipe,
+    TranslateModule,
+  ],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css',
 })
@@ -18,7 +25,7 @@ export class CartComponent {
   cartProducts!: Product[];
   totalPrice: number = 0;
   quantities!: number[];
-  token!: string;
+  token: string = this.auth.token;
   constructor(
     private addToCartSer: AddToCartService,
     private auth: AuthService
@@ -46,7 +53,6 @@ export class CartComponent {
     this.totalPrice = 0;
 
     this.cartProducts.forEach((prd, index) => {
-      console.log(index);
       this.totalPrice += parseFloat(
         (prd.priceAfterDiscount * this.quantities[index]).toFixed(2)
       );
@@ -70,7 +76,6 @@ export class CartComponent {
   }
   placeOrder() {
     this.addToCartSer.placeOrder();
-    console.log(this.cartProducts);
     this.totalPrice = 0;
   }
 }
